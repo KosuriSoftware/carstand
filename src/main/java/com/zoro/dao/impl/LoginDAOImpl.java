@@ -24,7 +24,7 @@ public class LoginDAOImpl implements LoginDAO {
 
 			try {
 				String query="select rg.EMAIL_ID,rg.STATUS as rgstatus,mb.VERIFIED_STATUS,mb.MOBILE_NO,lg.STATUS as lgstatus,lg.PASSWORD,lg.USER_TYPE as USER_TYPE from registration  rg left join mobile_verification mb on rg.EMAIL_ID=mb.USER_ID left join login lg on rg.EMAIL_ID=lg.EMAIL_ID WHERE rg.EMAIL_ID like BINARY '"+emailId+"' or mb.MOBILE_NO='"+mobileNo+"'";
-//				System.out.println("Login Check Query "+query);
+				System.out.println("Login Check Query "+query);
 				con=DBConnection.getConnection();
 			    pst=con.prepareStatement(query,pst.RETURN_GENERATED_KEYS);
 			
@@ -57,7 +57,6 @@ public class LoginDAOImpl implements LoginDAO {
 	}
 	
 	public String updateMobileOtp(String otp,String mobileNo) {
-		// TODO Auto-generated method stub
 		String msg=null;
 		PreparedStatement pst=null;
 		Connection con = null;

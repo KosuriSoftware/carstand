@@ -13,10 +13,8 @@ public class VerificationMail {
 			 email1 = EncryptDecrypt.encrypt(email);
 			
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (GeneralSecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -42,10 +40,8 @@ public class VerificationMail {
 		try {
 			email1= EncryptDecrypt.encrypt(email);
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (GeneralSecurityException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
