@@ -19,14 +19,11 @@ public class LoginService {
 	public String login(LoginRequest loginRequest) {
 
 		String msg = null;
-
 		String[] emailAndMobileStrArr = LoginUtilities.verifyEmailAndMobilePattern(loginRequest.getEmailId(),
 				loginRequest.getContactNo());
 
 		Map<String, String> map = loginDAO.loginCheck(emailAndMobileStrArr[0], emailAndMobileStrArr[1]);
-
 		msg = LoginUtilities.loginStatusActiveYN(map, emailAndMobileStrArr, loginDAO, loginRequest.getPassword());
-
 		String userId = LoginUtilities.getUserEmailId(emailAndMobileStrArr[0]);
 
 		String msg1 = null;
@@ -36,7 +33,8 @@ public class LoginService {
 		case "mobile":
 			msg1 = "Your Mobile No. not yet Verified. OTP has been sent to your registered Mobile No.";
 			Map<String, String> mobMap = LoginUtilities.getMobileVerificationDetails(emailAndMobileStrArr[0]);
-			System.out.println("./login.jsp?msg1=" + msg1 + "&mobileNo=" + mobMap.get("mobileNo") + "&email="+ mobMap.get("email"));
+			System.out.println("./login.jsp?msg1=" + msg1 + "&mobileNo=" + mobMap.get("mobileNo") + "&email="
+					+ mobMap.get("email"));
 			// response.sendRedirect("./login.jsp?msg1="+msg1+"&mobileNo="+mobMap.get("mobileNo")+"&email="+mobMap.get("email"));
 			break;
 
