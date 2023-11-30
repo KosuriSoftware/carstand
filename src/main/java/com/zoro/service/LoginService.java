@@ -26,6 +26,8 @@ public class LoginService {
 		msg = LoginUtilities.loginStatusActiveYN(map, emailAndMobileStrArr, loginDAO, loginRequest.getPassword());
 		String userId = LoginUtilities.getUserEmailId(emailAndMobileStrArr[0]);
 
+		loginDAO.testJdbcTemplate();
+		
 		String msg1 = null;
 
 		switch (msg) {

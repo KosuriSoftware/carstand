@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.zoro.dao.LoginDAO;
@@ -13,6 +16,10 @@ import com.zoro.utilities.DBConnection;
 
 @Component
 public class LoginDAOImpl implements LoginDAO {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
 	
 	@Override
 	public Map<String, String> loginCheck(String emailId, String mobileNo) {
@@ -83,7 +90,6 @@ public class LoginDAOImpl implements LoginDAO {
 	}
 	
 	public String getUserEmail(String userId) {
-		// TODO Auto-generated method stub
 		String email=null;
 		PreparedStatement pst=null;
 		Connection con = null;
@@ -146,6 +152,12 @@ public class LoginDAOImpl implements LoginDAO {
 			}
 		
 		return mobMap;
+	}
+
+	@Override
+	public void testJdbcTemplate() {
+		List<String> emailId = jdbcTemplate.queryForList("SELECT EMAIL_ID FROM login where login_id=388", String.class);
+		System.out.println("jdbc template ---> "+emailId);
 	}
 
 }
