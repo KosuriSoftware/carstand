@@ -59,15 +59,15 @@ public class AdminDAOImpl implements AdminDAO {
 					
 					RegistrationBean reg=new RegistrationBean();
 					
-					reg.setREG_ID(rs.getInt("REG_ID"));
-					reg.setCANDIDATE_NAME(rs.getString("CANDIDATE_NAME"));
-					reg.setADDRESS(rs.getString("ADDRESS"));
-					reg.setEMAIL_ID(rs.getString("EMAIL_ID"));
-					reg.setCONTACT_NO(rs.getString("CONTACT_NO"));
-					reg.setUSER_TYPE(rs.getString("USER_TYPE"));
-					reg.setSTATUS(rs.getString("STATUS"));
+					reg.setRegId(rs.getInt("REG_ID"));
+					reg.setCandidateName(rs.getString("CANDIDATE_NAME"));
+					reg.setAddress(rs.getString("ADDRESS"));
+					reg.setEmailId(rs.getString("EMAIL_ID"));
+					reg.setContactNo(rs.getString("CONTACT_NO"));
+					reg.setUserType(rs.getString("USER_TYPE"));
+					reg.setStatus(rs.getString("STATUS"));
 					//reg.setREG_DATE(new SQLDate().getInDate(rs.getString("REG_DATE")));
-					reg.setCANDIDATE_ID(rs.getString("CANDIDATE_ID"));
+					reg.setCandidateId(rs.getString("CANDIDATE_ID"));
 					regList.add(reg);
 					
 				}

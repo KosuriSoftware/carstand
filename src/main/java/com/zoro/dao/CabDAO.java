@@ -17,6 +17,7 @@ import com.zoro.dto.CabRequester;
 import com.zoro.dto.CabRoute;
 import com.zoro.dto.DriverBean;
 import com.zoro.dto.TravelerBooking;
+import com.zoro.model.SearchCab;
 
 public interface CabDAO {
 	
@@ -47,7 +48,7 @@ public interface CabDAO {
 	public Set<String> getBookingCabId(String email);
 	public List<TravelerBooking> getBookedTraveller(String email,String cabId);
 	public Map<String,Set<String>> getFromToVehicleType();
-	public List<CabHomeSearch> searchHCab(String from,String to,String date,String vehicleType,String location,String plateType,String driverType,String seatingCap,String serviceType,String brandType,String color);
+	public List<CabHomeSearch> searchHCab(SearchCab searchCab);
 	public DriverBean getDriverNames(String driverId,String cabId);
 	public String getcabId(String cabRegNo);
 	public AddCab getCabDetails(String cabRegNo);

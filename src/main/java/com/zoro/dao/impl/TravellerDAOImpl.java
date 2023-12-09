@@ -96,16 +96,16 @@ public class TravellerDAOImpl implements TravellerDAO {
 				
 				while(rs.next()){
 					
-					bean.setREG_ID(rs.getInt("REG_ID"));
-					bean.setCANDIDATE_NAME(rs.getString("CANDIDATE_NAME"));
-					bean.setADDRESS(rs.getString("ADDRESS"));
-					bean.setEMAIL_ID(rs.getString("EMAIL_ID"));
-					bean.setPASSWORD(rs.getString("PASSWORD"));
-					bean.setCONTACT_NO(rs.getString("CONTACT_NO"));
-					bean.setUSER_TYPE(rs.getString("USER_TYPE"));
-					bean.setREG_DATE(rs.getString("REG_DATE"));
-					bean.setSTATUS(rs.getString("STATUS"));
-					bean.setCANDIDATE_ID(rs.getString("CANDIDATE_ID"));
+					bean.setRegId(rs.getInt("REG_ID"));
+					bean.setCandidateName(rs.getString("CANDIDATE_NAME"));
+					bean.setAddress(rs.getString("ADDRESS"));
+					bean.setEmailId(rs.getString("EMAIL_ID"));
+					bean.setPassword(rs.getString("PASSWORD"));
+					bean.setContactNo(rs.getString("CONTACT_NO"));
+					bean.setUserType(rs.getString("USER_TYPE"));
+					bean.setRegisterDate(rs.getString("REG_DATE"));
+					bean.setStatus(rs.getString("STATUS"));
+					bean.setCandidateId(rs.getString("CANDIDATE_ID"));
 					
 				}
 				rs.close();
@@ -132,8 +132,8 @@ public class TravellerDAOImpl implements TravellerDAO {
 
 		try{
 			/*set SQL_SAFE_UPDATES=0; */
-			String query="update registration set CANDIDATE_NAME='"+reg.getCANDIDATE_NAME()+"',ADDRESS='"+reg.getADDRESS()+"',CONTACT_NO='"+reg.getCONTACT_NO()+"',USER_TYPE='"+reg.getUSER_TYPE()+"' where  EMAIL_ID='"+reg.getEMAIL_ID()+"'";
-			String query1="update login set USER_TYPE='"+reg.getUSER_TYPE()+"' where EMAIL_ID='"+reg.getEMAIL_ID()+"'";
+			String query="update registration set CANDIDATE_NAME='"+reg.getCandidateName()+"',ADDRESS='"+reg.getAddress()+"',CONTACT_NO='"+reg.getContactNo()+"',USER_TYPE='"+reg.getUserType()+"' where  EMAIL_ID='"+reg.getEmailId()+"'";
+			String query1="update login set USER_TYPE='"+reg.getUserType()+"' where EMAIL_ID='"+reg.getEmailId()+"'";
 			con=DBConnection.getConnection();
 			pst=con.prepareStatement(query);
 			con.setAutoCommit(false);

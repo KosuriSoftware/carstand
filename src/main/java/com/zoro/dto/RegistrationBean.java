@@ -2,85 +2,116 @@ package com.zoro.dto;
 
 public class RegistrationBean {
 	
-	private int REG_ID;
-	private String CANDIDATE_NAME;
-	private String ADDRESS;
-	private String EMAIL_ID;
-	private String PASSWORD;
-	private String CONTACT_NO;
-	private String USER_TYPE;
-	private String STATUS;
-	private String REG_DATE;
-	private String CANDIDATE_ID;
-	private String BUSINESS_NAME;
+	private int regId;
+	private String candidateName;
+	private String address;
+	private String emailId;
+	private String password;
+	private String contactNo;
+	private String userType;
+	private String status;
+	private String registerDate;
+	private String candidateId;
+	private String businessName;
 	
-	public int getREG_ID() {
-		return REG_ID;
-	}
-	public void setREG_ID(int rEG_ID) {
-		REG_ID = rEG_ID;
-	}
-	public String getCANDIDATE_NAME() {
-		return CANDIDATE_NAME;
-	}
-	public void setCANDIDATE_NAME(String cANDIDATE_NAME) {
-		CANDIDATE_NAME = cANDIDATE_NAME;
-	}
-	public String getADDRESS() {
-		return ADDRESS;
-	}
-	public void setADDRESS(String aDDRESS) {
-		ADDRESS = aDDRESS;
-	}
-	public String getEMAIL_ID() {
-		return EMAIL_ID;
-	}
-	public void setEMAIL_ID(String eMAIL_ID) {
-		EMAIL_ID = eMAIL_ID;
-	}
-	public String getPASSWORD() {
-		return PASSWORD;
-	}
-	public void setPASSWORD(String pASSWORD) {
-		PASSWORD = pASSWORD;
-	}
-	public String getCONTACT_NO() {
-		return CONTACT_NO;
-	}
-	public void setCONTACT_NO(String cONTACT_NO) {
-		CONTACT_NO = cONTACT_NO;
-	}
-	public String getUSER_TYPE() {
-		return USER_TYPE;
-	}
-	public void setUSER_TYPE(String uSER_TYPE) {
-		USER_TYPE = uSER_TYPE;
-	}
-	public String getSTATUS() {
-		return STATUS;
-	}
-	public void setSTATUS(String sTATUS) {
-		STATUS = sTATUS;
-	}
-	public String getREG_DATE() {
-		return REG_DATE;
-	}
-	public void setREG_DATE(String rEG_DATE) {
-		REG_DATE = rEG_DATE;
-	}
-	public String getCANDIDATE_ID() {
-		return CANDIDATE_ID;
-	}
-	public void setCANDIDATE_ID(String cANDIDATE_ID) {
-		CANDIDATE_ID = cANDIDATE_ID;
-	}
-	public String getBUSINESS_NAME() {
-		return BUSINESS_NAME;
-	}
-	public void setBUSINESS_NAME(String bUSINESS_NAME) {
-		BUSINESS_NAME = bUSINESS_NAME;
+	public RegistrationBean() {
+		super();
 	}
 	
+	
+	public RegistrationBean(int regId, String candidateName, String address, String emailId, String password,
+			String contactNo, String userType, String status, String registerDate, String candidateId,
+			String businessName) {
+		super();
+		this.regId = regId;
+		this.candidateName = candidateName;
+		this.address = address;
+		this.emailId = emailId;
+		this.password = password;
+		this.contactNo = contactNo;
+		this.userType = userType;
+		this.status = status;
+		this.registerDate = registerDate;
+		this.candidateId = candidateId;
+		this.businessName = businessName;
+	}
+
+
+	public int getRegId() {
+		return regId;
+	}
+	public void setRegId(int regId) {
+		this.regId = regId;
+	}
+	public String getCandidateName() {
+		return candidateName;
+	}
+	public void setCandidateName(String candidateName) {
+		this.candidateName = candidateName;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getContactNo() {
+		return contactNo;
+	}
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getRegisterDate() {
+		return registerDate;
+	}
+	public void setRegisterDate(String registerDate) {
+		this.registerDate = registerDate;
+	}
+	public String getCandidateId() {
+		return candidateId;
+	}
+	public void setCandidateId(String candidateId) {
+		this.candidateId = candidateId;
+	}
+	public String getBusinessName() {
+		return businessName;
+	}
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+
+	@Override
+	public String toString() {
+		return "RegistrationBean [regId=" + regId + ", candidateName=" + candidateName + ", address=" + address
+				+ ", emailId=" + emailId + ", password=" + password + ", contactNo=" + contactNo + ", userType="
+				+ userType + ", status=" + status + ", registerDate=" + registerDate + ", candidateId=" + candidateId
+				+ ", businessName=" + businessName + "]";
+	}
 	
 	
 	

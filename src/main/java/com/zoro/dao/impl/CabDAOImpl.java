@@ -32,15 +32,13 @@ import com.zoro.dto.CabRequester;
 import com.zoro.dto.CabRoute;
 import com.zoro.dto.DriverBean;
 import com.zoro.dto.TravelerBooking;
+import com.zoro.model.SearchCab;
 import com.zoro.sms.utilities.SmsCallGet;
 import com.zoro.utilities.BookingId;
 import com.zoro.utilities.CabId;
 import com.zoro.utilities.DBConnection;
 import com.zoro.utilities.IdGen;
 import com.zoro.utilities.SQLDate;
-
-
-
 
 @Component
 public class CabDAOImpl implements CabDAO {
@@ -240,8 +238,6 @@ public class CabDAOImpl implements CabDAO {
 
 	}
 
-
-
 	public Set<String> CabRegNo(String email) {
 		Set<String> regNo = new TreeSet<String>();
 		PreparedStatement pst = null;
@@ -310,7 +306,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String getCabIdFromCabRoute(String cabId) {
-		
+
 		String msg = null;
 		String cabRegId = null;
 		PreparedStatement pst = null;
@@ -348,7 +344,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabRoute> searchCabRoutes(String email, String cabId) {
-		
+
 		List<CabRoute> cabRoute = new ArrayList<CabRoute>();
 		String msg = null;
 		PreparedStatement pst = null;
@@ -409,12 +405,8 @@ public class CabDAOImpl implements CabDAO {
 		return cabRoute;
 	}
 
-
-
-	
-
 	public Set<String> getDriverId(String email) {
-		
+
 		Set<String> driverId = new TreeSet<String>();
 		PreparedStatement pst = null;
 
@@ -529,8 +521,6 @@ public class CabDAOImpl implements CabDAO {
 		return driverList;
 	}
 
-	
-
 	public Map<String, String> getDriverName(String driverId) {
 		Map<String, String> driver = new TreeMap<String, String>();
 		String msg = null;
@@ -615,7 +605,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String getAssignedValue(String cabId, String email, String driverId1) {
-		 
+
 		PreparedStatement pst = null;
 		String driverId = null;
 
@@ -647,7 +637,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String getDriverEmail(String driverEmail, String userId) {
-		 
+
 		PreparedStatement pst = null;
 		String driverId = null;
 
@@ -679,7 +669,6 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Set<AssignDriverCab> searchAssignedDriver(String cabId, String userId) {
-		 
 
 		String query = null;
 
@@ -699,7 +688,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String activateDriver(String cabId, String assignId, String userId, String status) {
-		 
+
 		PreparedStatement pst = null;
 		String message = null;
 //		String date1=date.getSQLDate(driver.getDOB());
@@ -735,7 +724,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String getCabRegNo(String cabRegNo, String email) {
-		 
+
 		PreparedStatement pst = null;
 		String cabId = null;
 		try {
@@ -766,7 +755,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Map<String, String> getAssignedStatus(String driverId, String cabId) {
-		 
+
 		PreparedStatement pst = null;
 		Map<String, String> map = new TreeMap<String, String>();
 		try {
@@ -798,7 +787,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Set<String> getBookingCabId(String email) {
-		 
+
 		Set<String> cabSet = new TreeSet<String>();
 		PreparedStatement pst = null;
 
@@ -830,7 +819,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<TravelerBooking> getBookedTraveller(String email, String cabId) {
-		 
+
 		List<TravelerBooking> cabSet = new ArrayList<TravelerBooking>();
 		PreparedStatement pst = null;
 
@@ -876,7 +865,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Map<String, Set<String>> getFromToVehicleType() {
-		 
+
 		Map<String, Set<String>> traveller = new TreeMap<String, Set<String>>();
 
 		Set<String> fromset = new TreeSet<String>();
@@ -919,10 +908,22 @@ public class CabDAOImpl implements CabDAO {
 		return traveller;
 	}
 
-	public List<CabHomeSearch> searchHCab(String from, String to, String date, String vehicleType, String location,
-			String plateType, String driverType, String seatingCap, String serviceType, String brandType,
-			String color) {
-		 
+	public List<CabHomeSearch> searchHCab(SearchCab searchCab) {
+		// TODO Auto-generated method stub
+
+		String from = searchCab.getFromCity();
+		String to = searchCab.getToCity();
+		String date = searchCab.getDate();
+		String vehicleType = searchCab.getVehicleType();
+		String location = searchCab.getLocation();
+		String plateType = searchCab.getPlateType();
+		String driverType = searchCab.getDriverType();
+		String seatingCap = searchCab.getSeatingCap();
+		String serviceType = searchCab.getServiceType();
+		String brandType = searchCab.getBrandType();
+		String color = searchCab.getColor();
+
+		System.out.println("Test line");
 		List<CabHomeSearch> cabSearch = new ArrayList<CabHomeSearch>();
 		String msg = null;
 		PreparedStatement pst = null;
@@ -932,6 +933,7 @@ public class CabDAOImpl implements CabDAO {
 		if (vehicleType == null) {
 			vehicleType = "";
 		}
+
 		if (location == null || location.equals("null")) {
 			location = "";
 		}
@@ -1282,10 +1284,8 @@ public class CabDAOImpl implements CabDAO {
 		return cabSearch;
 	}
 
-
-
 	public String getcabId(String cabRegNo) {
-		 
+
 		String cabId = null;
 		PreparedStatement pst = null;
 
@@ -1319,7 +1319,7 @@ public class CabDAOImpl implements CabDAO {
 	// method added by mahesh kosuri. To get mobile number and passing to cab
 	// verification message.
 	public String getCabContactNo(String cabRegNo) {
-		 
+
 		String cab_contact_no = null;
 		PreparedStatement pst = null;
 
@@ -1352,7 +1352,7 @@ public class CabDAOImpl implements CabDAO {
 
 	// method added by arti To get mobile number By CabId.
 	public String getCabContactNoByCabId(int cabId) {
-		 
+
 		String cab_contact_no = null;
 		PreparedStatement pst = null;
 
@@ -1384,7 +1384,7 @@ public class CabDAOImpl implements CabDAO {
 
 	// method added by arti To get cab added date By CabId.
 	public String getCabAddedDateByCabRegNo(String cabRegNo) {
-		 
+
 		String cab_added_date = null;
 		PreparedStatement pst = null;
 
@@ -1415,7 +1415,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public AddCab getCabDetails(String cabRegNo) {
-		 
+
 		PreparedStatement pst = null;
 
 		AddCab addCab = new AddCab();
@@ -1480,7 +1480,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String insertCabBooking(CabBook cabBook, String cabOwner) {
-		 
+
 		String bookingId = null;
 		PreparedStatement pst = null;
 		PreparedStatement pst1 = null;
@@ -1559,7 +1559,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabBook> getCabBookedDetails(String email) {
-		 
+
 		List<CabBook> bookList = new ArrayList<CabBook>();
 		PreparedStatement pst = null;
 
@@ -1604,7 +1604,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public CabBook cabBookingDetails(String bookingId) {
-		 
+
 		CabBook cab = new CabBook();
 		PreparedStatement pst = null;
 
@@ -1648,7 +1648,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String getCabRouteStatus(String cabId) {
-		 
+
 		String status = null;
 		PreparedStatement pst = null;
 
@@ -1680,7 +1680,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabRoute> getCabRouteDetails(String query) {
-		 
+
 		List<CabRoute> routeList = new ArrayList<CabRoute>();
 		PreparedStatement pst = null;
 
@@ -1731,7 +1731,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabRoute> searchCabRoute(String cabId, String from, String to, String email) {
-		 
+
 		String query = "";
 
 		if (cabId.equals("All") && from.equals("") && to.equals("")) {
@@ -1778,7 +1778,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String changeRouteStatus(String routeSeqId, String status) {
-		 
+
 		PreparedStatement pst = null;
 		String message = null;
 //		String date1=date.getSQLDate(driver.getDOB());
@@ -1813,7 +1813,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String changeCabAvailability(String cabSeqId, String avl) {
-		 
+
 		PreparedStatement pst = null;
 		String message = null;
 //		String date1=date.getSQLDate(driver.getDOB());
@@ -1848,7 +1848,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabBook> getBookingDetails(String query) {
-		 
+
 		List<CabBook> bookList = new ArrayList<CabBook>();
 		PreparedStatement pst = null;
 
@@ -1897,7 +1897,6 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabBook> searchCabBooking(String cabId, String status, String email) {
-		 
 
 		String query = "";
 		if (cabId.equals("All") && status.equals("")) {
@@ -1921,7 +1920,7 @@ public class CabDAOImpl implements CabDAO {
 
 	public String changeBookingStatus(String cabId, String bookingId, String email, String status, String userEmail,
 			String routId) {
-		 
+
 		PreparedStatement pst = null;
 		PreparedStatement pst1 = null;
 		String message = null;
@@ -1965,7 +1964,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String confirmBookingStatus(String cabId, String bookingId, String email, String status, String routId) {
-		 
+
 		PreparedStatement pst = null;
 		PreparedStatement pst1 = null;
 		String message = null;
@@ -2013,7 +2012,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String cancelCabBooking(String bookingId, String reason, String userType) {
-		 
+
 		String msg = null;
 		PreparedStatement pst = null;
 
@@ -2057,7 +2056,6 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public CabRoute cabRouteByRouteId(String routeId) {
-		 
 
 		String query = "select * from cab_route where ROUTE_GEN_ID='" + routeId + "'";
 
@@ -2071,7 +2069,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String updateBookingStatus(String bookingId, String status) {
-		 
+
 		PreparedStatement pst = null;
 		String message = null;
 //		String date1=date.getSQLDate(driver.getDOB());
@@ -2106,7 +2104,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Set<String> getCabBookingStatus(String routeId) {
-		 
+
 		Set<String> status = new TreeSet<String>();
 		PreparedStatement pst = null;
 
@@ -2140,7 +2138,7 @@ public class CabDAOImpl implements CabDAO {
 	// add code by danish
 
 	public List<AddCab> getCabFullDetails1(String query) {
-		 
+
 		PreparedStatement pst = null;
 
 		List<AddCab> cabList = new ArrayList<AddCab>();
@@ -2237,7 +2235,7 @@ public class CabDAOImpl implements CabDAO {
 	// end add code by danish
 
 	public List<AddCab> getCabFullDetails(String query) {
-		 
+
 		PreparedStatement pst = null;
 
 		List<AddCab> cabList = new ArrayList<AddCab>();
@@ -2330,7 +2328,6 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<AddCab> searchCDSBCab(String email, String cabId) {
-		 
 
 		String query = null;
 
@@ -2353,7 +2350,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String getBusinessName(String email) {
-		 
+
 		String businessName = null;
 		PreparedStatement pst = null;
 
@@ -2384,7 +2381,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Set<AssignDriverCab> getDriverAssignedDetails(String query) {
-		 
+
 		Set<AssignDriverCab> driverSet = new HashSet<AssignDriverCab>();
 		String msg = null;
 		PreparedStatement pst = null;
@@ -2424,7 +2421,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Set<AssignDriverCab> searchDriverAssigned(String cabId, String driverId, String userId) {
-		 
+
 		String query = null;
 
 		if (!cabId.equals("") && !cabId.equals("All") && driverId.equals("")) {
@@ -2454,7 +2451,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String getCabStatus(String cabId) {
-		 
+
 		String status = null;
 
 		PreparedStatement pst = null;
@@ -2487,7 +2484,6 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<AddCab> searAdCab(String email, String fromDate1, String toDate1) {
-		 
 
 		String query = null;
 		String fromDate = "", toDate = "";
@@ -2535,7 +2531,6 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabBook> searchTrCabBooking(String date1, String date2, String email) {
-		 
 
 		if (date1 != null && !date1.equals("") && !date1.equals("null")) {
 			date1 = new SQLDate().getSQLDate(date1);
@@ -2566,7 +2561,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String addCabCancellationPrice(CabCancellationPolicyBean cancellationPolicy) {
-		 
+
 		String msg = null;
 		PreparedStatement pst = null;
 		PreparedStatement pst1 = null;
@@ -2642,7 +2637,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String addConfirmationDate(String bookingId, String time) {
-		 
+
 		PreparedStatement pst = null;
 		String message = null;
 //		String date1=date.getSQLDate(driver.getDOB());
@@ -2677,7 +2672,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabCancellationPolicyBean> getCabCancellaionData(String cabRegNo, String ownerEmail) {
-		 
+
 		List<CabCancellationPolicyBean> cabCancelation = new ArrayList<CabCancellationPolicyBean>();
 		String msg = null;
 		PreparedStatement pst = null;
@@ -2717,7 +2712,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String checkServiceType(String date) {
-		 
+
 		String serviceType = null;
 		PreparedStatement pst = null;
 
@@ -2748,7 +2743,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public Set<String> getCabId(String email) {
-		 
+
 		Set<String> cabSet = new TreeSet<String>();
 		PreparedStatement pst = null;
 
@@ -2806,7 +2801,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String updatePrice(String routeId, String userId, String price, String pricePerKm) {
-		 
+
 		PreparedStatement pst = null;
 		String message = null;
 //		String date1=date.getSQLDate(driver.getDOB());
@@ -2841,7 +2836,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabRoute> searchCabRoute(String userId, String cabId, String date) {
-		 
+
 		String query = "";
 
 		if (!"".equals(cabId) && "".equals(date)) {
@@ -2867,7 +2862,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public String insertRoutePrice(String routeId, String price, String pricepeerkm) {
-		 
+
 		String msg = null;
 		PreparedStatement pst = null;
 
@@ -2912,7 +2907,7 @@ public class CabDAOImpl implements CabDAO {
 
 	public String insertUpdateCab(AddCab addCab, InputStream rcDoc, InputStream insuranceDoc, InputStream cabPhoto,
 			InputStream rcDoc1, InputStream insuranceDoc1, InputStream cabPhoto1) {
-		 
+
 		String msg = null;
 		PreparedStatement pst = null;
 		PreparedStatement pst1 = null;
@@ -3098,7 +3093,7 @@ public class CabDAOImpl implements CabDAO {
 	}
 
 	public List<CabCancellationPolicyBean> viewCabCancellationPolicy(String email, String cabId) {
-		 
+
 		List<CabCancellationPolicyBean> cabCancelation = new ArrayList<CabCancellationPolicyBean>();
 		String msg = null;
 		PreparedStatement pst = null;
@@ -3310,7 +3305,6 @@ public class CabDAOImpl implements CabDAO {
 
 	@Override
 	public String sendCabRequest(CabRequester cabRequester) {
-		 
 
 		// SELECT r.email_id,r.CANDIDATE_NAME,r.contact_no FROM registration r,
 		// (SELECT CAB_OWNER_ID FROM add_cab WHERE
@@ -3406,7 +3400,7 @@ public class CabDAOImpl implements CabDAO {
 
 	@Override
 	public List<CabRequester> searchTravellerCabRequests(CabRequester cabrequester, int limit, int offset) {
-		 
+
 		List<CabRequester> al = new ArrayList<CabRequester>();
 		Statement st = null;
 		ResultSet rs = null;
@@ -3488,7 +3482,7 @@ public class CabDAOImpl implements CabDAO {
 
 	@Override
 	public List<String> getCarColors() {
-		 
+
 		ArrayList<String> al = new ArrayList<>();
 		String query = "SELECT color FROM add_cab group by color";
 		Statement st = null;
