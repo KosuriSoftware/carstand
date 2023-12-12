@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "5cadc92b-917c-436c-9514-1e11d0f79d42",
+		"name": "CarStand",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9001/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"loginId\":\"7894562\",\r\n  \"emailId\":\"ysnr12345@gmail.com\",\r\n  \"password\":\"manpassword\",\r\n  \"contactNo\":\"9492085860\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"regId\":123,\r\n\"candidateName\":\"Anil\",\r\n\"address\":\"Hyderabad\",\r\n\"emailId\":\"anil@gmail.com\",\r\n\"password\":\"manpassword\",\r\n\"contactNo\":\"9492085860\",\r\n\"userType\":\"TA\",\r\n\"status\":\"ACTIVE\",\r\n\"registerDate\":\"02-11-2023\",\r\n\"candidateId\":\"1234\",\r\n\"businessName\":\"Cab Driver\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:9001/mobileVerify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"otp\":\"\",\r\n  \"emailId\":\"zorocabs@zorocabs.com\",\r\n  \"password\":\"admin\",\r\n  \"contactNo\":\"9492085860\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/mobileVerify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"mobileVerify"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
