@@ -13,30 +13,12 @@ public class RegistrationBean {
 	private String registerDate;
 	private String candidateId;
 	private String businessName;
-	
+	private String mobileOTPMesg;
+	private String emailOTPMsg;
+	private String genOTP;
 	public RegistrationBean() {
 		super();
 	}
-	
-	
-	public RegistrationBean(int regId, String candidateName, String address, String emailId, String password,
-			String contactNo, String userType, String status, String registerDate, String candidateId,
-			String businessName) {
-		super();
-		this.regId = regId;
-		this.candidateName = candidateName;
-		this.address = address;
-		this.emailId = emailId;
-		this.password = password;
-		this.contactNo = contactNo;
-		this.userType = userType;
-		this.status = status;
-		this.registerDate = registerDate;
-		this.candidateId = candidateId;
-		this.businessName = businessName;
-	}
-
-
 	public int getRegId() {
 		return regId;
 	}
@@ -103,15 +85,33 @@ public class RegistrationBean {
 	public void setBusinessName(String businessName) {
 		this.businessName = businessName;
 	}
-
-
+	public String getMobileOTPMesg() {
+		return mobileOTPMesg;
+	}
+	public void setMobileOTPMesg(String mobileOTPMesg) {
+		this.mobileOTPMesg = mobileOTPMesg;
+	}
+	public String getEmailOTPMsg() {
+		return emailOTPMsg;
+	}
+	public void setEmailOTPMsg(String emailOTPMsg) {
+		this.emailOTPMsg = emailOTPMsg;
+	}
+	public String getGenOTP() {
+		return genOTP;
+	}
+	public void setGenOTP(String genOTP) {
+		this.genOTP = genOTP;
+	}
 	@Override
 	public String toString() {
 		return "RegistrationBean [regId=" + regId + ", candidateName=" + candidateName + ", address=" + address
 				+ ", emailId=" + emailId + ", password=" + password + ", contactNo=" + contactNo + ", userType="
 				+ userType + ", status=" + status + ", registerDate=" + registerDate + ", candidateId=" + candidateId
-				+ ", businessName=" + businessName + "]";
+				+ ", businessName=" + businessName + ", mobileOTPMesg=" + mobileOTPMesg + ", emailOTPMsg=" + emailOTPMsg
+				+ ", genOTP=" + genOTP + "]";
 	}
+
 	
 	
 	
